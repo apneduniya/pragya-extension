@@ -1,0 +1,44 @@
+{
+    "manifest_version": 3,
+    "name": "Pragya",
+    "description": "Browser automation AI",
+    "version": "1.0",
+    "icons": {
+        "16": "assets/images/logo.png",
+        "48": "assets/images/logo.png",
+        "128": "assets/images/logo.png"
+    },
+    "background": {
+        "service_worker": "js/background/background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "js/content/utils/state.js",
+                "js/content/helpers.js",
+                "js/content/mark_page.js",
+                "js/content/action_agent.js",
+                "js/content/main.js",
+                "js/content/overlay.js",
+                "js/content/inject_overlay.js",
+                "js/content/content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "action": {
+        "default_popup": "html/popup.html",
+        "default_icon": {
+            "16": "assets/images/logo.png",
+            "48": "assets/images/logo.png",
+            "128": "assets/images/logo.png"
+        }
+    },
+    "permissions": [
+        "storage",
+        "activeTab"
+    ]
+}
